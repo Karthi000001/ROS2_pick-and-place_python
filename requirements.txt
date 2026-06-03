@@ -1,0 +1,17 @@
+# requirements.txt
+# -----------------
+# Minimal dependencies for the pick-and-place demo.
+#
+# Install with:
+#   pip install -r requirements.txt
+#
+# ROS 2 (rclpy) is NOT listed here because it is installed as part of
+# the ROS 2 Humble distribution, not via pip.
+# The code runs without rclpy — it falls back to print() logging
+# when rclpy is not available.
+
+# YAML config file parsing
+PyYAML>=6.0
+
+# Testing framework
+pytest>=7.0

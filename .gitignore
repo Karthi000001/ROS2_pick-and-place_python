@@ -1,0 +1,29 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.eggs/
+*.egg-info/
+dist/
+build/
+.env
+venv/
+env/
+
+# ROS 2
+install/
+log/
+build/
+*.bag
+*.db3
+
+# Docker
+.docker/
+
+# IDE
+.vscode/
+.idea/
+*.swp
