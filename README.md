@@ -4,8 +4,7 @@ A minimal, well-structured Python simulation of an AI-powered
 bin-picking orchestrator — the core system used in warehouse  
 robotics deployments.
 
-**Author:** Karthikeyan Raja  
-**Target role:** Deployment Engineer — Sereact GmbH  
+**Author:** Karthikeyan Raja    
 **Stack:** Python 3.10 · ROS 2 Humble · Docker
 
 ---
