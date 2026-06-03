@@ -1,0 +1,30 @@
+# config/settings.yaml
+# ─────────────────────────────────────────────
+# Pick-and-Place Demo — Runtime Configuration
+# ─────────────────────────────────────────────
+# All values here can be overridden on the command line:
+#   python main.py --bin B2 --retries 2
+
+
+# ── Zones ──────────────────────────────────────
+# bin_zone   : label of the source bin to pick from
+# place_zone : label of the target location to place objects
+bin_zone   : "A1"
+place_zone : "P1"
+
+
+# ── Pick logic ─────────────────────────────────
+# max_retries          : how many times to retry if a pick fails
+#                        before giving up and returning FAILED
+# confidence_threshold : minimum detection confidence (0.0–1.0)
+#                        to accept a grasp candidate
+max_retries          : 3
+confidence_threshold : 0.75
+
+
+# ── Simulation timing ─────────────────────────
+# These control how long each simulated step takes.
+# Reduce them to speed up tests.
+perception_latency : 0.3    # seconds for object detection
+waypoint_duration  : 0.2    # seconds per trajectory waypoint
+gripper_actuation  : 0.12   # seconds to open or close gripper

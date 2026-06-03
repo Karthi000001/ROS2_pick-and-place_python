@@ -1,0 +1,40 @@
+# docker-compose.yml
+# ─────────────────────────────────────────────────────────
+# Runs the pick-and-place orchestrator as a Docker service.
+#
+# Start:  docker-compose up
+# Stop:   docker-compose down
+# Logs:   docker-compose logs -f
+# ─────────────────────────────────────────────────────────
+
+version: "3.8"
+
+services:
+
+  orchestrator:
+    build: .
+    image: pick-place-demo:latest
+    container_name: pick_place_orchestrator
+
+    # network_mode: host is required for ROS 2 DDS multicast to work.
+    # Without this, ROS 2 nodes in different containers cannot
+    # discover each other.
+    network_mode: host
+
+    # Mount the config directory so settings can be changed
+    # without rebuilding the image.
+    volumes:
+      - ./config:/app/config:ro
+
+    # Site-specific settings passed as environment variables.
+    # These override values in config/settings.yaml.
+    environment:
+      - ROS_DOMAIN_ID=0
+      # ROS_DOMAIN_ID must be the same on every machine in the
+      # same ROS 2 network. Use a different value per robot cell
+      # to prevent cross-talk between cells.
+
+    # Restart automatically if the process crashes.
+    restart: on-failure
+
+    command: python main.py
